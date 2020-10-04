@@ -1,4 +1,5 @@
 import react.dom.*
+import react.*
 import kotlinx.browser.document
 import kotlinx.css.*
 import styled.*
@@ -15,44 +16,48 @@ val watchedVideos = listOf(
         Video(4, "Mouseless development", "Tom Jerry", "https://youtu.be/PsaFVLr8t4E")
 )
 
+class App : RComponent<RProps, RState>() {
+    override fun RBuilder.render() {
+        render(document.getElementById("root")) {
+            h1 {
+                +"KotlinConf Explorer"
+            }
+            div {
+                h3 {
+                    +"Videos to watch"
+                }
+                videoList {
+                    videos = unwatchedVideos
+                }
+
+                h3 {
+                    +"Videos watched"
+                }
+                videoList {
+                    videos = watchedVideos
+                }
+            }
+            styledDiv {
+                css {
+                    position = Position.absolute
+                    top = 10.px
+                    right = 10.px
+                }
+                h3 {
+                    +"John Doe: Building and breaking things"
+                }
+                img {
+                    attrs {
+                        src = "https://via.placeholder.com/640x360.png?text=Video+Player+Placeholder"
+                    }
+                }
+            }
+        }
+    }
+}
+
 fun main() {
     render(document.getElementById("root")) {
-        h1 {
-            +"KotlinConf Explorer"
-        }
-        div {
-            h3 {
-                +"Videos to watch"
-            }
-            for(video in unwatchedVideos) {
-                p {
-                    +"${video.speaker}: ${video.title}"
-                }
-            }
-
-            h3 {
-                +"Videos watched"
-            }
-            for(video in watchedVideos) {
-                p {
-                    +"${video.speaker}: ${video.title}"
-                }
-            }
-        }
-        styledDiv {
-            css {
-                position = Position.absolute
-                top = 10.px
-                right = 10.px
-            }
-            h3 {
-                +"John Doe: Building and breaking things"
-            }
-            img {
-                attrs {
-                    src = "https://via.placeholder.com/640x360.png?text=Video+Player+Placeholder"
-                }
-            }
-        }
+        child(App::class) {}
     }
 }
