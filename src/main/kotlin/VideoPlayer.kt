@@ -1,12 +1,4 @@
-import kotlinx.css.top
-import kotlinx.css.px
-import kotlinx.css.right
-import kotlinx.css.Position
-import kotlinx.css.position
-import kotlinx.css.display
-import kotlinx.css.Display
-import kotlinx.css.backgroundColor
-import kotlinx.css.Color
+import kotlinx.css.*
 import kotlinx.html.js.onClickFunction
 //import kotlinx.html.js.onClickFunction
 import react.RBuilder
@@ -35,15 +27,50 @@ class VideoPlayer : RComponent<VideoPlayerProps, RState>() {
             h3 {
                 +"${props.video.speaker}: ${props.video.title}"
             }
-            img {
-                attrs {
-                    src = "https://via.placeholder.com/640x360.png?text=Video+Player+Placeholder"
+            styledDiv {
+                css {
+                    display = Display.flex
+                    marginBottom = 10.px
                 }
+                emailShareButton {
+                    attrs.url = props.video.videoUrl
+                    attrs.body = "Video by: ${props.video.speaker}"
+                    attrs.subject = "Video title: '${props.video.title}'"
+                    emailIcon {
+                        attrs.size = 32
+                        attrs.round = true
+                        attrs.iconFillColor = "black"
+                    }
+                }
+                linkedinShareButton {
+                    attrs.url = props.video.videoUrl
+                    attrs.title = props.video.title
+                    attrs.summary = "Video by: ${props.video.speaker}"
+                    attrs.source = "videoPlayer kotlinjs project"
+                    linkedinIcon {
+                        attrs.size = 32
+                        attrs.round = true
+                        attrs.iconFillColor = "black"
+                    }
+                }
+                twitterShareButton {
+                    attrs.url = props.video.videoUrl
+                    attrs.title = "'${props.video.title}'"
+                    attrs.via = "lotharschulz"
+                    twitterIcon {
+                        attrs.size = 32
+                        attrs.round = true
+                        attrs.iconFillColor = "black"
+                    }
+                }
+            }
+            reactPlayer {
+                attrs.url = props.video.videoUrl
             }
             styledButton {
                 css {
                     display = Display.block
-                    backgroundColor = if(props.unwatchedVideo) Color.lightGreen else Color.red
+                    backgroundColor = if(props.unwatchedVideo) Color.lightGreen else Color.aliceBlue
                 }
                 attrs {
                     onClickFunction = {
