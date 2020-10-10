@@ -15,6 +15,15 @@ repositories {
 kotlin {
     js {
         browser {
+            distribution {
+                directory = File("$projectDir/output/")
+            }
+            webpackTask {
+                cssSupport.enabled = true
+            }
+            runTask {
+                cssSupport.enabled = true
+            }
             testTask {
                 useKarma {
                     useIe()
@@ -25,6 +34,7 @@ kotlin {
                     useChromeHeadless()
                     usePhantomJS()
                     useOpera()
+                    webpackConfig.cssSupport.enabled = true
                 }
             }
         }

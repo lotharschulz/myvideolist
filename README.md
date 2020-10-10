@@ -17,3 +17,14 @@ test
 ```shell script
 ./gradlew check
 ```
+
+pack
+```shell script
+./gradlew browserDevelopmentWebpack
+```
+
+```shell script
+./gradlew browserProductionWebpack
+```
+
+find the files in `output` directory
