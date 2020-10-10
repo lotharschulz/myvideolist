@@ -39,6 +39,6 @@ dependencies {
     //Share Buttons (chapter 7)
     implementation(npm("react-share", "~4.2.1"))
 
-/*    //Coroutines (chapter 8)
-    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.3.9")*/
+    //Coroutines (chapter 8)
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.3.9")
 }
