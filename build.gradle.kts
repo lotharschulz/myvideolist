@@ -2,8 +2,8 @@ plugins {
     id("org.jetbrains.kotlin.js") version "1.4.10"
 }
 
-group = "org.example"
-version = "1.0-SNAPSHOT"
+group = "info.lotharschulz"
+version = "0.1-SNAPSHOT"
 
 repositories {
     maven { setUrl("https://dl.bintray.com/kotlin/kotlin-eap") }
