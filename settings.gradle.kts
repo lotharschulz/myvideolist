@@ -7,4 +7,4 @@ pluginManagement {
         maven { setUrl("https://plugins.gradle.org/m2/") }
     }
 }
-rootProject.name = "kotlinjs01"
+rootProject.name = "kotlinjs"

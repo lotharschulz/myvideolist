@@ -20,3 +20,11 @@ object Fetch {
                     .await()
                     .unsafeCast<Video>()
 }
+
+/*
+
+- you tube API fetch my videos: https://developers.google.com/youtube/v3/code_samples/apps-script#retrieve_my_uploads
+- access youtube API: https://blog.bitsrc.io/make-a-simple-react-app-with-using-youtube-api-68fa016e5a03
+- API requirements: https://developers.google.com/youtube/v3/docs/#calling-the-api (https://www.slickremix.com/docs/get-api-key-for-youtube/)
+
+ */

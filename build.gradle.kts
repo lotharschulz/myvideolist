@@ -14,6 +14,7 @@ repositories {
 
 kotlin {
     js {
+        moduleName = "kotlinjs"
         browser {
             distribution {
                 directory = File("$projectDir/output/")
