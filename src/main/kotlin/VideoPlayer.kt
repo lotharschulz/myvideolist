@@ -70,7 +70,8 @@ class VideoPlayer : RComponent<VideoPlayerProps, RState>() {
             styledButton {
                 css {
                     display = Display.block
-                    backgroundColor = if(props.unwatchedVideo) Color.lightGreen else Color.aliceBlue
+                    backgroundColor = if(props.unwatchedVideo) Color.black else Color.red
+                    color = Color.white
                 }
                 attrs {
                     onClickFunction = {

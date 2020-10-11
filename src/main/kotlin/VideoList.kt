@@ -25,7 +25,7 @@ class VideoList: RComponent<VideoListProps, RState>() {
                 if(video == props.selectedVideo) {
                     +"▶ "
                 }
-                +"${video.speaker}: ${video.title}"
+                +"${video.title}"
             }
         }
     }
