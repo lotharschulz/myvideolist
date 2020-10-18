@@ -1,3 +1,5 @@
+package info.lotharschulz.videolist
+
 import kotlinx.css.Display
 import kotlinx.css.display
 import kotlinx.css.margin
@@ -44,7 +46,7 @@ class VideoPlayer : RComponent<VideoPlayerProps, RState>() {
                     attrs.url = props.video.videoUrl
                     attrs.title = props.video.title
                     attrs.summary = "Video by Lothar Schulz"
-                    attrs.source = "lotharschulz.info: videos"
+                    attrs.source = "lotharschulz.info: info.lotharschulz.videolist.getVideos"
                     linkedinIcon {
                         attrs.size = 32
                         attrs.round = false

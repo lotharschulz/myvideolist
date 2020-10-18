@@ -1,3 +1,5 @@
+package info.lotharschulz.videolist
+
 import kotlinx.css.Cursor
 import kotlinx.css.cursor
 import kotlinx.css.properties.TextDecorationLine

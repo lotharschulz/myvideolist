@@ -1,3 +1,5 @@
+package info.lotharschulz.videolist
+
 import kotlinx.browser.document
 import react.dom.render
 
