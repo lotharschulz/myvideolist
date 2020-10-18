@@ -18,6 +18,17 @@ My Video list web page inspired by [Building Web Applications with React and Kot
 ./gradlew check
 ```
 
+## Lint
+```shell script
+./gradlew clean --continue ktlintCheck
+```
+
+## Dependency check
+```shell script
+./gradlew clean dependencyCheckAnalyze
+```
+more [dependency check tasks](https://jeremylong.github.io/DependencyCheck/dependency-check-gradle/configuration.html)
+
 ## Pack
 ```shell script
 ./gradlew browserDevelopmentWebpack

@@ -1,0 +1,9 @@
+# 2020 07 16:
+# https://www.reddit.com/r/Kotlin/comments/cr76zs/imports_must_be_ordered_in_lexicographic_order/f6wtd5j/
+# https://www.reddit.com/r/Kotlin/comments/cr76zs/imports_must_be_ordered_in_lexicographic_order/excyib6/
+# https://github.com/reach-now/android-whitelabel-apps/blob/master/.editorconfig
+[*.{kt,kts}]
+indent_size=4
+continuation_indent_size=4
+insert_final_newline=false
+disabled_rules=import-ordering

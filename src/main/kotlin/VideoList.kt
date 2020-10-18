@@ -1,6 +1,9 @@
 import kotlinx.css.Cursor
 import kotlinx.css.cursor
-import kotlinx.css.properties.*
+import kotlinx.css.properties.TextDecorationLine
+import kotlinx.css.properties.textDecoration
+import kotlinx.css.properties.transition
+import kotlinx.css.properties.Time
 import kotlinx.html.js.onClickFunction
 import react.RBuilder
 import react.RComponent
