@@ -7,7 +7,8 @@ import react.RProps
 import react.RState
 import react.ReactElement
 import react.dom.h4
-import styled.*
+import styled.css
+import styled.styledDiv
 
 external interface VideoPlayerProps : RProps {
     var video: Video
