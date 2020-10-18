@@ -1,5 +1,6 @@
 package info.lotharschulz.videolist
 
+import kotlinx.browser.window
 import kotlinx.css.Display
 import kotlinx.css.display
 import kotlinx.css.margin
@@ -18,46 +19,54 @@ external interface VideoPlayerProps : RProps {
 
 class VideoPlayer : RComponent<VideoPlayerProps, RState>() {
     override fun RBuilder.render() {
-        styledDiv {
-            reactPlayer {
-                attrs.url = props.video.videoUrl
-                attrs.controls = true
+        reactPlayer {
+            attrs.url = props.video.videoUrl
+            attrs.controls = true
+            when {
+                window.innerWidth <= 640 || window.innerHeight <= 320 -> {
+                    attrs.width = "320px"
+                    attrs.height = "180px"
+                }
+                window.innerWidth > 640 || window.innerHeight > 320 -> {
+                    attrs.width = "640px"
+                    attrs.height = "360px"
+                }
             }
-            styledDiv {
-                css {
-                    display = Display.flex
-                    margin = "1em"
+        }
+        styledDiv {
+            css {
+                display = Display.flex
+                margin = "1em"
+            }
+            emailShareButton {
+                attrs.url = props.video.videoUrl
+                attrs.body = "Video by Lothar Schulz: "
+                attrs.subject = "Video: '${props.video.title}' by Lothar Schulz"
+                emailIcon {
+                    attrs.size = 32
+                    attrs.round = false
+                    attrs.iconFillColor = "black"
                 }
-                emailShareButton {
-                    attrs.url = props.video.videoUrl
-                    attrs.body = "Video by Lothar Schulz: "
-                    attrs.subject = "Video: '${props.video.title}' by Lothar Schulz"
-                    emailIcon {
-                        attrs.size = 32
-                        attrs.round = false
-                        attrs.iconFillColor = "black"
-                    }
+            }
+            linkedinShareButton {
+                attrs.url = props.video.videoUrl
+                attrs.title = props.video.title
+                attrs.summary = "Video by Lothar Schulz"
+                attrs.source = "lotharschulz.info: info.lotharschulz.videolist.getVideos"
+                linkedinIcon {
+                    attrs.size = 32
+                    attrs.round = false
+                    attrs.iconFillColor = "black"
                 }
-                linkedinShareButton {
-                    attrs.url = props.video.videoUrl
-                    attrs.title = props.video.title
-                    attrs.summary = "Video by Lothar Schulz"
-                    attrs.source = "lotharschulz.info: info.lotharschulz.videolist.getVideos"
-                    linkedinIcon {
-                        attrs.size = 32
-                        attrs.round = false
-                        attrs.iconFillColor = "black"
-                    }
-                }
-                twitterShareButton {
-                    attrs.url = props.video.videoUrl
-                    attrs.title = "'${props.video.title}'"
-                    attrs.via = "lotharschulz"
-                    twitterIcon {
-                        attrs.size = 32
-                        attrs.round = false
-                        attrs.iconFillColor = "black"
-                    }
+            }
+            twitterShareButton {
+                attrs.url = props.video.videoUrl
+                attrs.title = "'${props.video.title}'"
+                attrs.via = "lotharschulz"
+                twitterIcon {
+                    attrs.size = 32
+                    attrs.round = false
+                    attrs.iconFillColor = "black"
                 }
             }
         }
