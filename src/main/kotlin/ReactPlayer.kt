@@ -1,5 +1,5 @@
 @file:JsModule("react-player")
-@file:JsNonModule
+@file:JsNonModule // ktlint-disable
 
 import react.RClass
 import react.RProps

@@ -1,6 +1,4 @@
-/* ktlint-disable no-wildcard-imports */
-import react.* // currentVideo
-/* ktlint-disable no-wildcard-imports */
+import react.* // ktlint-disable
 import react.RBuilder
 import react.RComponent
 import react.RProps
