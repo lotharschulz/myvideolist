@@ -1,5 +1,4 @@
 import kotlinx.css.*
-import kotlinx.html.js.onClickFunction
 import react.RBuilder
 import react.RComponent
 import react.RProps
@@ -59,28 +58,6 @@ class VideoPlayer : RComponent<VideoPlayerProps, RState>() {
                         attrs.iconFillColor = "black"
                     }
                 }
-/*
-                styledButton {
-                    css {
-                        margin = "1em"
-                        padding = "0.5em"
-                        display = Display.block
-                        backgroundColor = if(props.unwatchedVideo) Color.black else Color.red
-                        color = Color.white
-                    }
-                    attrs {
-                        onClickFunction = {
-                            props.onWatchedButtonPressed(props.video)
-                        }
-                    }
-                    if(props.unwatchedVideo) {
-                        +"Mark as watched"
-                    }
-                    else {
-                        +"Mark as unwatched"
-                    }
-                }
-*/
             }
         }
     }
