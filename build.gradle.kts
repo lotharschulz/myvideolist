@@ -37,6 +37,9 @@ dependencies {
 
     // Share Buttons
     implementation(npm("react-share", "~4.3.0"))
+
+    // test
+    testImplementation(kotlin("test-js"))
 }
 
 kotlin {
@@ -54,14 +57,16 @@ kotlin {
             }
             testTask {
                 useKarma {
+                    useFirefox()
+/*
+                    useChrome()
                     useIe()
                     useSafari()
-                    useFirefox()
-                    useChrome()
-                    useChromeCanary()
                     useChromeHeadless()
+                    useChromeCanary()
                     usePhantomJS()
                     useOpera()
+*/
                     webpackConfig.cssSupport.enabled = true
                 }
             }
