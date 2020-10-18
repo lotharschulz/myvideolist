@@ -1,7 +1,9 @@
 package info.lotharschulz.videolist
 
 import kotlinx.css.Cursor
+import kotlinx.css.FontWeight
 import kotlinx.css.cursor
+import kotlinx.css.fontWeight
 import kotlinx.css.properties.TextDecorationLine
 import kotlinx.css.properties.textDecoration
 import kotlinx.css.properties.transition
@@ -36,7 +38,10 @@ class VideoList : RComponent<VideoListProps, VideoListState>() {
             styledP {
                 css {
                     when (video == props.selectedVideo) {
-                        true -> textDecoration(TextDecorationLine.unset)
+                        true -> {
+                            textDecoration(TextDecorationLine.unset)
+                            fontWeight = FontWeight.bold
+                        }
                         false -> textDecoration(TextDecorationLine.underline)
                     }
                     transition(property = "all", duration = Time("0.4"))
@@ -59,9 +64,6 @@ class VideoList : RComponent<VideoListProps, VideoListState>() {
                     onClickFunction = {
                         props.onSelectVideo(video)
                     }
-                }
-                if (video == props.selectedVideo) {
-                    +"▶  "
                 }
                 +"${video.title}"
             }

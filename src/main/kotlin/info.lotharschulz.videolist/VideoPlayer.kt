@@ -8,22 +8,17 @@ import react.RComponent
 import react.RProps
 import react.RState
 import react.ReactElement
-import react.dom.h4
 import styled.css
 import styled.styledDiv
 
 external interface VideoPlayerProps : RProps {
     var video: Video
-    var onWatchedButtonPressed: (Video) -> Unit
     var unwatchedVideo: Boolean
 }
 
 class VideoPlayer : RComponent<VideoPlayerProps, RState>() {
     override fun RBuilder.render() {
         styledDiv {
-            h4 {
-                +"${props.video.title}"
-            }
             reactPlayer {
                 attrs.url = props.video.videoUrl
             }
