@@ -30,9 +30,6 @@ class App : RComponent<RProps, AppState>() {
 
     override fun RBuilder.render() {
         div(classes = "videolist") {
-            h4 {
-                +"Videos"
-            }
             videoList {
                 videos = state.unwatchedVideos
                 selectedVideo = state.currentVideo
