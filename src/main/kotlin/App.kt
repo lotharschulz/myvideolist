@@ -18,14 +18,14 @@ val videos  = listOf(
 external interface AppState: RState {
     var currentVideo: Video?
     var unwatchedVideos: List<Video>
-    var watchedVideos: List<Video>
+//    var watchedVideos: List<Video>
 }
 
 class App : RComponent<RProps, AppState>() {
 
     override fun AppState.init() {
         unwatchedVideos = videos
-        watchedVideos = listOf()
+//        watchedVideos = listOf()
     }
 
     override fun RBuilder.render() {
@@ -43,6 +43,7 @@ class App : RComponent<RProps, AppState>() {
                 }
             }
 
+/*
             if (state.watchedVideos.isNotEmpty()) {
                 h4 {
                     +"Videos watched"
@@ -57,12 +58,14 @@ class App : RComponent<RProps, AppState>() {
                     }
                 }
             }
+*/
         }
         div (classes = "videoplayer") {
             state.currentVideo?.let { currentVideo ->
                 videoPlayer {
                     video = currentVideo
                     unwatchedVideo = currentVideo in state.unwatchedVideos
+/*
                     onWatchedButtonPressed = {
                         if (video in state.unwatchedVideos) {
                             setState {
@@ -76,6 +79,7 @@ class App : RComponent<RProps, AppState>() {
                             }
                         }
                     }
+*/
                 }
             }
         }

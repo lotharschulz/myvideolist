@@ -59,6 +59,7 @@ class VideoPlayer : RComponent<VideoPlayerProps, RState>() {
                         attrs.iconFillColor = "black"
                     }
                 }
+/*
                 styledButton {
                     css {
                         margin = "1em"
@@ -79,6 +80,7 @@ class VideoPlayer : RComponent<VideoPlayerProps, RState>() {
                         +"Mark as unwatched"
                     }
                 }
+*/
             }
         }
     }
