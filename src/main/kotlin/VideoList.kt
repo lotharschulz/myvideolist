@@ -13,17 +13,17 @@ import react.ReactElement
 import styled.css
 import styled.styledP
 
-external interface VideoListProps: RProps {
+external interface VideoListProps : RProps {
     var videos: List<Video>
     var selectedVideo: Video?
     var onSelectVideo: (Video) -> Unit
 }
 
-external interface VideoListState: RState {
-    var initialState:Boolean
+external interface VideoListState : RState {
+    var initialState: Boolean
 }
 
-class VideoList: RComponent<VideoListProps, VideoListState>() {
+class VideoList : RComponent<VideoListProps, VideoListState>() {
 
     override fun VideoListState.init() {
         initialState = true
@@ -33,14 +33,14 @@ class VideoList: RComponent<VideoListProps, VideoListState>() {
         for (video in props.videos) {
             styledP {
                 css {
-                    when(video == props.selectedVideo) {
+                    when (video == props.selectedVideo) {
                         true -> textDecoration(TextDecorationLine.unset)
                         false -> textDecoration(TextDecorationLine.underline)
                     }
-                    transition(property="all", duration = Time("0.4"))
+                    transition(property = "all", duration = Time("0.4"))
                     hover {
                         cursor = Cursor.pointer
-                        when(video == props.selectedVideo) {
+                        when (video == props.selectedVideo) {
                             true -> textDecoration(TextDecorationLine.underline)
                             false -> textDecoration(TextDecorationLine.unset)
                         }
@@ -58,7 +58,7 @@ class VideoList: RComponent<VideoListProps, VideoListState>() {
                         props.onSelectVideo(video)
                     }
                 }
-                if(video == props.selectedVideo) {
+                if (video == props.selectedVideo) {
                     +"▶  "
                 }
                 +"${video.title}"
