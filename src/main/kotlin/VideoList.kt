@@ -1,12 +1,14 @@
-import kotlinx.browser.window
+import kotlinx.css.Cursor
+import kotlinx.css.cursor
+import kotlinx.css.properties.*
 import kotlinx.html.js.onClickFunction
-import kotlinx.html.js.onLoadFunction
 import react.RBuilder
 import react.RComponent
 import react.RProps
 import react.RState
 import react.ReactElement
-import react.dom.p
+import styled.css
+import styled.styledP
 
 external interface VideoListProps: RProps {
     var videos: List<Video>
@@ -26,17 +28,26 @@ class VideoList: RComponent<VideoListProps, VideoListState>() {
 
     override fun RBuilder.render() {
         for (video in props.videos) {
-            p {
+            styledP {
+                css {
+                    when(video == props.selectedVideo) {
+                        true -> textDecoration(TextDecorationLine.unset)
+                        false -> textDecoration(TextDecorationLine.underline)
+                    }
+                    transition(property="all", duration = Time("0.4"))
+                    hover {
+                        cursor = Cursor.pointer
+                        when(video == props.selectedVideo) {
+                            true -> textDecoration(TextDecorationLine.underline)
+                            false -> textDecoration(TextDecorationLine.unset)
+                        }
+                    }
+                }
                 key = video.id.toString()
                 attrs {
                     if (state.initialState) {
                         props.onSelectVideo(
-                            Video(
-                                1,
-                                "Open Source CI/CD components for GitHub Actions",
-                                "Lothar Schulz",
-                                "https://youtu.be/26E9hRKkqw4"
-                            )
+                            videos[0]
                         )
                         state.initialState = false
                     }
@@ -45,7 +56,7 @@ class VideoList: RComponent<VideoListProps, VideoListState>() {
                     }
                 }
                 if(video == props.selectedVideo) {
-                    +"▶ "
+                    +"▶  "
                 }
                 +"${video.title}"
             }

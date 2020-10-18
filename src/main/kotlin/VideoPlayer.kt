@@ -1,13 +1,11 @@
 import kotlinx.css.*
 import kotlinx.html.js.onClickFunction
-//import kotlinx.html.js.onClickFunction
 import react.RBuilder
 import react.RComponent
 import react.RProps
 import react.RState
 import react.ReactElement
-import react.dom.h3
-import react.dom.img
+import react.dom.h4
 import styled.*
 
 external interface VideoPlayerProps : RProps {
@@ -19,37 +17,35 @@ external interface VideoPlayerProps : RProps {
 class VideoPlayer : RComponent<VideoPlayerProps, RState>() {
     override fun RBuilder.render() {
         styledDiv {
-            css {
-                position = Position.absolute
-                top = 10.px
-                right = 10.px
+            h4 {
+                +"${props.video.title}"
             }
-            h3 {
-                +"${props.video.speaker}: ${props.video.title}"
+            reactPlayer {
+                attrs.url = props.video.videoUrl
             }
             styledDiv {
                 css {
                     display = Display.flex
-                    marginBottom = 10.px
+                    margin = "1em"
                 }
                 emailShareButton {
                     attrs.url = props.video.videoUrl
-                    attrs.body = "Video by: ${props.video.speaker}"
-                    attrs.subject = "Video title: '${props.video.title}'"
+                    attrs.body = "Video by Lothar Schulz: "
+                    attrs.subject = "Video: '${props.video.title}' by Lothar Schulz"
                     emailIcon {
                         attrs.size = 32
-                        attrs.round = true
+                        attrs.round = false
                         attrs.iconFillColor = "black"
                     }
                 }
                 linkedinShareButton {
                     attrs.url = props.video.videoUrl
                     attrs.title = props.video.title
-                    attrs.summary = "Video by: ${props.video.speaker}"
-                    attrs.source = "videoPlayer kotlinjs project"
+                    attrs.summary = "Video by Lothar Schulz"
+                    attrs.source = "lotharschulz.info: videos"
                     linkedinIcon {
                         attrs.size = 32
-                        attrs.round = true
+                        attrs.round = false
                         attrs.iconFillColor = "black"
                     }
                 }
@@ -59,30 +55,29 @@ class VideoPlayer : RComponent<VideoPlayerProps, RState>() {
                     attrs.via = "lotharschulz"
                     twitterIcon {
                         attrs.size = 32
-                        attrs.round = true
+                        attrs.round = false
                         attrs.iconFillColor = "black"
                     }
                 }
-            }
-            reactPlayer {
-                attrs.url = props.video.videoUrl
-            }
-            styledButton {
-                css {
-                    display = Display.block
-                    backgroundColor = if(props.unwatchedVideo) Color.black else Color.red
-                    color = Color.white
-                }
-                attrs {
-                    onClickFunction = {
-                        props.onWatchedButtonPressed(props.video)
+                styledButton {
+                    css {
+                        margin = "1em"
+                        padding = "0.5em"
+                        display = Display.block
+                        backgroundColor = if(props.unwatchedVideo) Color.black else Color.red
+                        color = Color.white
                     }
-                }
-                if(props.unwatchedVideo) {
-                    +"Mark as watched"
-                }
-                else {
-                    +"Mark as unwatched"
+                    attrs {
+                        onClickFunction = {
+                            props.onWatchedButtonPressed(props.video)
+                        }
+                    }
+                    if(props.unwatchedVideo) {
+                        +"Mark as watched"
+                    }
+                    else {
+                        +"Mark as unwatched"
+                    }
                 }
             }
         }
