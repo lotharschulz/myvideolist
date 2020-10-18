@@ -1,4 +1,6 @@
-import kotlinx.css.*
+import kotlinx.css.Display
+import kotlinx.css.display
+import kotlinx.css.margin
 import react.RBuilder
 import react.RComponent
 import react.RProps
