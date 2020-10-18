@@ -11,4 +11,5 @@ external val reactPlayer: RClass<ReactPlayerProps>
 
 external interface ReactPlayerProps : RProps {
     var url: String
+    var controls: Boolean
 }

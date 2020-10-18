@@ -21,6 +21,7 @@ class VideoPlayer : RComponent<VideoPlayerProps, RState>() {
         styledDiv {
             reactPlayer {
                 attrs.url = props.video.videoUrl
+                attrs.controls = true
             }
             styledDiv {
                 css {
