@@ -1,7 +1,8 @@
 @file:JsModule("react-player")
 @file:JsNonModule
 
-import react.*
+import react.RClass
+import react.RProps
 
 @JsName("default")
 external val reactPlayer: RClass<ReactPlayerProps>
