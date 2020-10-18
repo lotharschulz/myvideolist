@@ -11,8 +11,8 @@ val videos  = listOf(
         Video(2, "How to shrink a docker image [CI/CD Meetup Berlin - Nov. 2018]", "https://youtu.be/_NK0_KgudNc"),
         Video(3, "Ktor App Continuous Delivery", "https://youtu.be/T-Ed_tbi1f8"),
         Video(4, "How to Shrink a Docker Image [Devops Pro Conference - March 2019 ]", "https://youtu.be/_6R0nk_gWbY"),
-        Video(5, "Gitops show case", "https://youtu.be/pSrjBcKr1tA"),
-        Video(6, "downwardAPI demo", "https://youtu.be/rCtT18k4nUM")
+        Video(5, "A GitOps show case", "https://youtu.be/pSrjBcKr1tA"),
+        Video(6, "Kubernetes downward API demo", "https://youtu.be/rCtT18k4nUM")
 )
 
 external interface AppState: RState {
