@@ -1,7 +1,7 @@
 @file:JsModule("react-player")
-@file:JsNonModule
+@file:JsNonModule // ktlint-disable
 
-package info.lotharschulz.videolist // ktlint-disable
+package info.lotharschulz.videolist
 
 import react.RClass
 import react.RProps
